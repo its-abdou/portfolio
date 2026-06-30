@@ -18,6 +18,8 @@ export type Project = {
   skills: string[]
   /** Optional rich description; Markdown and line breaks supported. */
   description?: string
+  /** Source code / GitHub repo URL. */
+  source?: string
   /** Cover image URL (1200x630, absolute URL). */
   image?: string
 }

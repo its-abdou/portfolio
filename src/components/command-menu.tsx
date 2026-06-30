@@ -55,6 +55,11 @@ const MENU_LINKS: CommandLinkItem[] = [
     icon: <Icons.react />,
     shortcut: "GH",
   },
+  {
+    title: "Projects",
+    href: "/projects",
+    icon: <BoxIcon />,
+  },
 ]
 
 const PORTFOLIO_LINKS: CommandLinkItem[] = [

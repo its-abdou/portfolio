@@ -30,6 +30,7 @@ ${project.description ?? ""}
 ${skills ? `**Skills:** ${skills}\n` : ""}
 
 **Link:** ${project.link}
+${project.source ? `\n**Source Code:** ${project.source}\n` : ""}
 `
 
   return new Response(content, {

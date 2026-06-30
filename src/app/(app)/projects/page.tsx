@@ -4,6 +4,7 @@ import { Suspense } from "react"
 import { X_USERNAME } from "@/config/site"
 import { ProjectListWithSearch } from "@/features/portfolio/components/projects/project-list-with-search"
 import { ProjectSearchInput } from "@/features/portfolio/components/projects/project-search-input"
+import { cn } from "@/lib/utils"
 
 const title = "Projects"
 const description = "A collection of projects I've built and contributed to."
@@ -37,6 +38,14 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <div className="mx-auto border-x border-line md:max-w-3xl">
+      <div
+        className={cn(
+          "screen-line-bottom h-8",
+          "before:absolute before:-left-[100vw] before:-z-1 before:h-full before:w-[200vw]",
+          "before:bg-[repeating-linear-gradient(315deg,var(--pattern-foreground)_0,var(--pattern-foreground)_1px,transparent_0,transparent_50%)] before:bg-size-[10px_10px] before:[--pattern-foreground:var(--color-line)]/56"
+        )}
+      />
+
       <div className="screen-line-bottom px-4">
         <h1 className="text-3xl leading-none font-semibold tracking-tight">
           {title}

@@ -8,6 +8,7 @@ export const PROJECTS: Project[] = [
       start: "05.2025",
     },
     link: "https://react-wheel-picker.chanhdai.com",
+    source: "https://github.com/ncdai/react-wheel-picker",
     skills: [
       "Open Source",
       "React",
@@ -78,6 +79,7 @@ export const PROJECTS: Project[] = [
       start: "01.2022",
     },
     link: "https://zadark.com",
+    source: "https://github.com/ncdai/zadark",
     skills: [
       "Pet Project",
       "Open Source",
@@ -141,6 +143,7 @@ export const PROJECTS: Project[] = [
       end: "07.2020",
     },
     link: "https://www.youtube.com/watch?v=H5U3J_W1low",
+    source: "https://github.com/ncdai/ltudjava-summer2020-chatapp_server",
     skills: ["University Project", "Java", "Java Swing", "Java Networking"],
     description: `- Course: Java Application Programming — FIT@HCMUS
 - Requirement: Developed a real-time chat application using Java technologies
@@ -157,6 +160,7 @@ export const PROJECTS: Project[] = [
       end: "06.2020",
     },
     link: "https://www.youtube.com/watch?v=tG9SZEBrwog",
+    source: "https://github.com/ncdai/ltudjava-summer2020-hibernate",
     skills: ["University Project", "Java", "Java Swing", "Hibernate", "MySQL"],
     description: `- Course: Java Application Programming — FIT@HCMUS
 - Requirement: Built a student management system with role-based functionalities using Java technologies

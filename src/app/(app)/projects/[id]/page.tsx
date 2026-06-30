@@ -1,4 +1,4 @@
-import { ArrowLeftIcon, ArrowRightIcon, ExternalLinkIcon } from "lucide-react"
+import { ArrowLeftIcon, ArrowRightIcon } from "lucide-react"
 import type { Metadata } from "next"
 import Link from "next/link"
 import { notFound } from "next/navigation"
@@ -15,6 +15,10 @@ import { Tag } from "@/components/ui/tag"
 import { Prose } from "@/components/ui/typography"
 import { X_USERNAME } from "@/config/site"
 import { PROJECTS } from "@/features/portfolio/data/projects"
+import { ProjectPageActions } from "@/features/projects/components/project-page-actions"
+import { ProjectPreviewButton } from "@/features/projects/components/project-preview-button"
+import { ProjectShareMenu } from "@/features/projects/components/project-share-menu"
+import { ProjectSourceButton } from "@/features/projects/components/project-source-button"
 import { cn } from "@/lib/utils"
 
 export const revalidate = false
@@ -35,6 +39,12 @@ function findProjectNeighbour(id: string) {
     previous: index > 0 ? PROJECTS[index - 1] : null,
     next: index < PROJECTS.length - 1 ? PROJECTS[index + 1] : null,
   }
+}
+
+function getProjectSourceUrl(project: { link: string; source?: string }) {
+  if (project.source) return project.source
+  if (/github\.com/.test(project.link)) return project.link
+  return null
 }
 
 export async function generateMetadata({
@@ -91,9 +101,21 @@ export default async function Page({
   }
 
   const { previous, next } = findProjectNeighbour(id)
+  const sourceUrl = getProjectSourceUrl(project)
+  const isPreview = !/github\.com/.test(project.link)
 
   return (
-    <>
+    <div className="mx-auto border-x border-line md:max-w-3xl">
+      <div className="screen-line-top screen-line-bottom">
+        <div
+          className={cn(
+            "h-8",
+            "before:absolute before:-left-[100vw] before:-z-1 before:h-full before:w-[200vw]",
+            "before:bg-[repeating-linear-gradient(315deg,var(--pattern-foreground)_0,var(--pattern-foreground)_1px,transparent_0,transparent_50%)] before:bg-size-[10px_10px] before:[--pattern-foreground:var(--color-line)]/56"
+          )}
+        />
+      </div>
+
       <div className="flex items-center justify-between p-2 pl-4">
         <Button
           className="h-7 gap-2 border-none px-0 font-mono text-muted-foreground hover:text-foreground"
@@ -108,6 +130,17 @@ export default async function Page({
         </Button>
 
         <div className="flex items-center gap-2">
+          <ProjectPageActions markdownUrl={`/projects/${project.id}/content`} />
+
+          <ProjectShareMenu
+            title={project.title}
+            url={`/projects/${project.id}`}
+          />
+
+          {sourceUrl && <ProjectSourceButton source={sourceUrl} />}
+
+          {isPreview && <ProjectPreviewButton link={project.link} />}
+
           {previous && (
             <Tooltip>
               <TooltipTrigger
@@ -181,10 +214,8 @@ export default async function Page({
           {project.title}
         </h1>
 
-        {project.description && <Markdown>{project.description}</Markdown>}
-
         {project.skills.length > 0 && (
-          <ul className="not-prose flex flex-wrap gap-1.5">
+          <ul className="not-prose mb-4 flex flex-wrap gap-1.5">
             {project.skills.map((skill) => (
               <li key={skill} className="flex">
                 <Tag>{skill}</Tag>
@@ -193,20 +224,10 @@ export default async function Page({
           </ul>
         )}
 
-        <div className="not-prose">
-          <a
-            href={project.link}
-            target="_blank"
-            rel="noopener"
-            className="inline-flex items-center gap-1.5 text-sm text-muted-foreground transition-colors hover:text-foreground"
-          >
-            <ExternalLinkIcon className="size-4" />
-            {project.link}
-          </a>
-        </div>
+        {project.description && <Markdown>{project.description}</Markdown>}
       </Prose>
 
       <div className="screen-line-top h-4 w-full" />
-    </>
+    </div>
   )
 }
