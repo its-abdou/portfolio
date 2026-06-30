@@ -1,28 +1,15 @@
-import type { Node } from "unist-builder"
+import type { Element, Root, Text } from "hast"
 
-export interface UnistNode extends Node {
-  type: string
-  name?: string
-  tagName?: string
-  value?: string
-  properties?: {
-    __rawString__?: string
-    [key: string]: unknown
-  } & NpmCommands
-  attributes?: {
-    name: string
-    value: unknown
-    type?: string
-  }[]
-  children?: UnistNode[]
+export type UnistNode = Element & {
   __rawString__?: string
+  tagName: string
+  children: (Element | Text)[]
+  properties: Record<string, unknown>
 }
 
-export interface UnistTree extends Node {
-  children: UnistNode[]
-}
+export type UnistTree = Root
 
-export interface NpmCommands {
+export type NpmCommands = {
   __pnpm__?: string
   __yarn__?: string
   __npm__?: string

@@ -1,6 +1,3 @@
-import type { Event } from "@/lib/events"
-import { trackEvent } from "@/lib/events"
-
 export const copyText = async (text: string) => {
   try {
     await navigator.clipboard.writeText(text)
@@ -10,9 +7,6 @@ export const copyText = async (text: string) => {
   }
 }
 
-export function copyToClipboardWithEvent(value: string, event?: Event) {
-  if (event) {
-    trackEvent(event)
-  }
-  return copyText(value)
+export function copyToClipboardWithEvent(value: string) {
+  return navigator.clipboard.writeText(value)
 }

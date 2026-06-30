@@ -2,7 +2,10 @@ import type { LineElement } from "rehype-pretty-code"
 import rehypePrettyCode from "rehype-pretty-code"
 import { visit } from "unist-util-visit"
 
-import type { UnistNode, UnistTree } from "@/types/unist"
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+type UnistNode = any
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+type UnistTree = any
 
 export function rehypeCodeRawString() {
   return (tree: UnistTree) => {
