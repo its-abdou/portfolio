@@ -20,11 +20,11 @@ export function Bookmarks() {
         </PanelTitle>
       </PanelHeader>
 
-      <CollapsibleList
-        items={SORTED_BOOKMARKS}
-        max={3}
-        renderItem={(item) => <BookmarkItem bookmark={item} />}
-      />
+      <CollapsibleList max={3}>
+        {SORTED_BOOKMARKS.map((item) => (
+          <BookmarkItem key={item.url} bookmark={item} />
+        ))}
+      </CollapsibleList>
     </Panel>
   )
 }

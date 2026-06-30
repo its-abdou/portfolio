@@ -20,12 +20,11 @@ export function Awards() {
         </PanelTitle>
       </PanelHeader>
 
-      <CollapsibleList
-        items={SORTED_AWARDS}
-        max={3}
-        keyExtractor={(item) => item.id}
-        renderItem={(item) => <AwardItem award={item} />}
-      />
+      <CollapsibleList max={3}>
+        {SORTED_AWARDS.map((item) => (
+          <AwardItem key={item.id} award={item} />
+        ))}
+      </CollapsibleList>
     </Panel>
   )
 }

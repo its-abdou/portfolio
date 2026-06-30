@@ -14,11 +14,11 @@ export function Certifications() {
         </PanelTitle>
       </PanelHeader>
 
-      <CollapsibleList
-        items={CERTIFICATIONS}
-        max={3}
-        renderItem={(item) => <CertificationItem certification={item} />}
-      />
+      <CollapsibleList max={3}>
+        {CERTIFICATIONS.map((item) => (
+          <CertificationItem key={item.credentialURL} certification={item} />
+        ))}
+      </CollapsibleList>
     </Panel>
   )
 }
