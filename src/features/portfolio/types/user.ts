@@ -19,6 +19,8 @@ export type User = {
   email: string
   /** Personal/homepage URL */
   website: string
+  /** Public URL or path to resume PDF */
+  resumeUrl: string
   /** Primary/current role shown on profile */
   jobTitle: string
   /** Work history entries */
@@ -34,8 +36,6 @@ export type User = {
   avatar: string
   /** Open Graph image URL for social sharing */
   ogImage: string
-  /** Audio URL for name pronunciation */
-  namePronunciationUrl: string
   /** SEO keywords list for metadata */
   keywords: string[]
   /** Time zone in IANA format (e.g., "Asia/Ho_Chi_Minh") */

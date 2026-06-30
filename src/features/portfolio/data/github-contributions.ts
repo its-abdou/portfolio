@@ -1,7 +1,12 @@
 import { unstable_cache } from "next/cache"
 
-import type { Activity } from "@/components/kibo-ui/contribution-graph"
 import { GITHUB_USERNAME } from "@/config/site"
+
+export type Activity = {
+  date: string
+  count: number
+  level: number
+}
 
 type GitHubContributionsResponse = {
   contributions: Activity[]

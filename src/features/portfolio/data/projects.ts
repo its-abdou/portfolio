@@ -25,8 +25,8 @@ export const PROJECTS: Project[] = [
 - Unstyled core for complete style customization
 - Full keyboard navigation and type-ahead search
 `,
-    logo: "https://assets.chanhdai.com/images/project-logos/react-wheel-picker.svg",
-    isExpanded: true,
+    image:
+      "https://assets.chanhdai.com/images/project-covers/react-wheel-picker.webp",
   },
   {
     id: "chanhdaidotcom",
@@ -47,7 +47,8 @@ export const PROJECTS: Project[] = [
     ],
     description:
       "A minimal, pixel-perfect dev portfolio, shadcn registry, and blog.",
-    logo: "https://assets.chanhdai.com/images/project-logos/chanhdaidotcom.svg",
+    image:
+      "https://assets.chanhdai.com/images/project-covers/chanhdaidotcom.webp",
   },
   {
     id: "quaricdotcom",
@@ -67,7 +68,8 @@ export const PROJECTS: Project[] = [
       "Docker Compose",
       "NGINX",
     ],
-    logo: "https://assets.chanhdai.com/images/project-logos/quaricdotcom.svg",
+    image:
+      "https://assets.chanhdai.com/images/project-covers/quaricdotcom.webp",
   },
   {
     id: "zadark",
@@ -91,7 +93,7 @@ export const PROJECTS: Project[] = [
 
 <p class="text-muted-foreground">* Peak metrics recorded; actual current figures may vary.</p>
 `,
-    logo: "https://assets.chanhdai.com/images/project-logos/zadark.svg",
+    image: "https://assets.chanhdai.com/images/project-covers/zadark.webp",
   },
   {
     id: "qabox",

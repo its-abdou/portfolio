@@ -3,7 +3,7 @@ import type { User } from "@/features/portfolio/types/user"
 export const USER: User = {
   firstName: "Abdessamed",
   lastName: "Benaidja",
-  displayName: "Benaidja Abdessamed",
+  displayName: "Abdessamed Benaidja",
   username: "its-abdou",
   gender: "male",
   pronouns: "he/him",
@@ -16,20 +16,15 @@ export const USER: User = {
   address: "Oran, Algeria",
   phoneNumber: "KzIxMzc5MTM4NDE5Mw==", //  base64 encoded
   email: "YWJkZXNzYW1lZDYzMEBnbWFpbC5jb20=", // base64 encoded
-  website: "https://chanhdai.com",
-  jobTitle: "Software Engineer",
+  website: "https://github.com/its-abdou",
+  resumeUrl: "/docs/resume.pdf",
+  jobTitle: "Engineering Student",
   jobs: [
     {
-      title: "Design Engineer",
-      company: "shadcncraft",
-      website: "https://shadcncraft.com",
-      experienceId: "shadcncraft",
-    },
-    {
-      title: "Founder",
-      company: "Quaric",
-      website: "https://quaric.com",
-      experienceId: "quaric",
+      title: "Engineering Student",
+      company: "ENPO",
+      website: "https://www.enp-oran.dz",
+      experienceId: "education",
     },
   ],
   about: `
@@ -40,19 +35,15 @@ export const USER: User = {
   avatar: "https://avatars.githubusercontent.com/u/152995137?v=4",
   ogImage:
     "https://assets.chanhdai.com/images/screenshot-og-image-dark.png?v=8",
-  namePronunciationUrl: "https://assets.chanhdai.com/audio/chanhdai.mp3",
   timeZone: "Africa/Algiers",
   keywords: [
-    "ncdai",
-    "nguyenchanhdai",
-    "nguyen chanh dai",
-    "chanhdai",
-    "chanh dai",
-    "iamncdai",
-    "quaric",
-    "zadark",
-    "nguyễn chánh đại",
-    "chánh đại",
+    "abdessamed benaidja",
+    "abdessamed",
+    "benaidja",
+    "its-abdou",
+    "fullstack developer",
+    "enpo",
+    "oran",
   ],
   dateCreated: "2023-10-20", // YYYY-MM-DD
 }
