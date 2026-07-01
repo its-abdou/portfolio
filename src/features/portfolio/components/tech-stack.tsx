@@ -5,6 +5,7 @@ import {
   TooltipContent,
   TooltipTrigger,
 } from "@/components/base/ui/tooltip"
+import { cn } from "@/lib/utils"
 
 import { TECH_STACK } from "../data/tech-stack"
 import { Panel, PanelContent, PanelHeader, PanelTitle } from "./panel"
@@ -17,10 +18,18 @@ export function TechStack() {
       </PanelHeader>
 
       <PanelContent>
-        <ul className="flex flex-wrap gap-4 select-none">
+        <ul className="grid grid-cols-[repeat(7,1fr)] gap-4 select-none md:grid-cols-[repeat(14,1fr)]">
           {TECH_STACK.map((tech) => {
+            const iconClassName = cn(
+              "h-auto w-full max-w-8",
+              tech.iconScale && tech.iconScale !== 1 && "origin-center"
+            )
+            const iconStyle = tech.iconScale
+              ? { transform: `scale(${tech.iconScale})` }
+              : undefined
+
             return (
-              <li key={tech.key} className="flex">
+              <li key={tech.key} className="flex items-center justify-center">
                 <Tooltip>
                   <TooltipTrigger
                     render={
@@ -29,32 +38,43 @@ export function TechStack() {
                         target="_blank"
                         rel="noopener"
                         aria-label={tech.title}
+                        className="flex w-full items-center justify-center"
                       >
                         {tech.theme ? (
                           <>
                             <Image
-                              src={`https://assets.chanhdai.com/images/tech-stack-icons/${tech.key}-light.svg`}
+                              src={`/images/tech-stack-icons/${tech.key}-light.svg`}
                               alt={`${tech.title} light icon`}
                               width={32}
                               height={32}
-                              className="hidden [html.light_&]:block"
+                              className={cn(
+                                "hidden [html.light_&]:block",
+                                iconClassName
+                              )}
+                              style={iconStyle}
                               unoptimized
                             />
                             <Image
-                              src={`https://assets.chanhdai.com/images/tech-stack-icons/${tech.key}-dark.svg`}
+                              src={`/images/tech-stack-icons/${tech.key}-dark.svg`}
                               alt={`${tech.title} dark icon`}
                               width={32}
                               height={32}
-                              className="hidden [html.dark_&]:block"
+                              className={cn(
+                                "hidden [html.dark_&]:block",
+                                iconClassName
+                              )}
+                              style={iconStyle}
                               unoptimized
                             />
                           </>
                         ) : (
                           <Image
-                            src={`https://assets.chanhdai.com/images/tech-stack-icons/${tech.key}.svg`}
+                            src={`/images/tech-stack-icons/${tech.key}.svg`}
                             alt={`${tech.title} icon`}
                             width={32}
                             height={32}
+                            className={iconClassName}
+                            style={iconStyle}
                             unoptimized
                           />
                         )}

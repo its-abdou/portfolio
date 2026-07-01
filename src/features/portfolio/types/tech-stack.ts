@@ -18,4 +18,10 @@ export type TechStack = {
   categories: string[]
   /** If true, use theme-specific icons for dark/light mode. */
   theme?: boolean
+  /**
+   * Visual size multiplier (default 1) for icons whose artwork reads
+   * smaller than others at the same bounding box (e.g. extra padding
+   * baked into the source SVG, or thin line-art vs. bold flat logos).
+   */
+  iconScale?: number
 }
