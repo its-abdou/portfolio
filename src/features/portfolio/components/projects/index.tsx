@@ -3,17 +3,19 @@ import Link from "next/link"
 
 import { Button } from "@/components/base/ui/button"
 
-import { PROJECTS } from "../../data/projects"
+import { getAllProjects } from "../../data/projects"
 import { Panel, PanelHeader, PanelTitle, PanelTitleSup } from "../panel"
 import { ProjectItem } from "./project-item"
 
 export function Projects() {
+  const projects = getAllProjects()
+
   return (
     <Panel id="projects">
       <PanelHeader>
         <PanelTitle>
           Projects
-          <PanelTitleSup>({PROJECTS.length})</PanelTitleSup>
+          <PanelTitleSup>({projects.length})</PanelTitleSup>
         </PanelTitle>
       </PanelHeader>
 
@@ -24,10 +26,15 @@ export function Projects() {
         </div>
 
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-          {PROJECTS.slice(0, 4).map((project) => (
+          {projects.slice(0, 4).map((project) => (
             <ProjectItem
-              key={project.id}
-              project={project}
+              key={project.slug}
+              project={{
+                slug: project.slug,
+                title: project.metadata.name,
+                image: project.metadata.image,
+                createdAt: project.metadata.createdAt,
+              }}
               shouldPreloadImage
             />
           ))}

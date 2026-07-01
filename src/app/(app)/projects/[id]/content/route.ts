@@ -1,13 +1,16 @@
 import { notFound } from "next/navigation"
 
-import { PROJECTS } from "@/features/portfolio/data/projects"
+import {
+  getAllProjects,
+  getProjectBySlug,
+} from "@/features/portfolio/data/projects"
 
 export const revalidate = false
 export const dynamic = "force-static"
 export const dynamicParams = false
 
 export async function generateStaticParams() {
-  return PROJECTS.map((project) => ({ id: project.id }))
+  return getAllProjects().map((project) => ({ id: project.slug }))
 }
 
 export async function GET(
@@ -15,22 +18,23 @@ export async function GET(
   { params }: { params: Promise<{ id: string }> }
 ) {
   const { id } = await params
-  const project = PROJECTS.find((p) => p.id === id)
+  const project = getProjectBySlug(id)
 
   if (!project) {
     notFound()
   }
 
-  const skills = project.skills.length > 0 ? project.skills.join(", ") : ""
+  const technologies = project.metadata.technologies?.length
+    ? project.metadata.technologies.join(", ")
+    : ""
 
-  const content = `# ${project.title}
+  const content = `# ${project.metadata.name}
 
-${project.description ?? ""}
+${project.content}
 
-${skills ? `**Skills:** ${skills}\n` : ""}
-
-**Link:** ${project.link}
-${project.source ? `\n**Source Code:** ${project.source}\n` : ""}
+${technologies ? `**Technologies:** ${technologies}\n` : ""}
+${project.metadata.link ? `**Link:** ${project.metadata.link}\n` : ""}
+${project.metadata.sourceCode ? `**Source Code:** ${project.metadata.sourceCode}\n` : ""}
 `
 
   return new Response(content, {

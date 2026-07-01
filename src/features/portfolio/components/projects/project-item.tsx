@@ -2,20 +2,20 @@ import { BoxIcon } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 
-import { cn } from "@/lib/utils"
+import { cn, formatDate } from "@/lib/utils"
 
-import type { Project } from "../../types/projects"
+import type { ProjectPreview } from "../../types/projects"
 
 export function ProjectItem({
   project,
   shouldPreloadImage,
 }: {
-  project: Project
+  project: ProjectPreview
   shouldPreloadImage?: boolean
 }) {
   return (
     <Link
-      href={`/projects/${project.id}`}
+      href={`/projects/${project.slug}`}
       className={cn(
         "group flex flex-col gap-2 p-2 transition-[background-color] ease-out hover:bg-accent-muted",
         "max-sm:screen-line-top max-sm:screen-line-bottom",
@@ -46,6 +46,12 @@ export function ProjectItem({
         <h3 className="text-lg leading-snug font-medium text-balance">
           {project.title}
         </h3>
+
+        {project.createdAt && (
+          <p className="font-mono text-sm text-muted-foreground">
+            {formatDate(project.createdAt)}
+          </p>
+        )}
       </div>
     </Link>
   )

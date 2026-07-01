@@ -2,13 +2,12 @@
 
 import { useQueryState } from "nuqs"
 
-import { PROJECTS } from "../../data/projects"
-import type { Project } from "../../types/projects"
+import type { ProjectPreview } from "../../types/projects"
 import { ProjectItem } from "./project-item"
 
 const normalize = (text: string) => text.toLowerCase().replaceAll(" ", "")
 
-function filterProjects(projects: Project[], query: string | null) {
+function filterProjects(projects: ProjectPreview[], query: string | null) {
   if (!query) return projects
 
   const normalizedQuery = normalize(query)
@@ -17,12 +16,16 @@ function filterProjects(projects: Project[], query: string | null) {
   )
 }
 
-export function ProjectListWithSearch() {
+export function ProjectListWithSearch({
+  projects,
+}: {
+  projects: ProjectPreview[]
+}) {
   const [query] = useQueryState("q", {
     defaultValue: "",
   })
 
-  const filtered = filterProjects(PROJECTS, query)
+  const filtered = filterProjects(projects, query)
 
   return (
     <div className="relative pt-4">
@@ -34,7 +37,7 @@ export function ProjectListWithSearch() {
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
         {filtered.map((project, index) => (
           <ProjectItem
-            key={project.id}
+            key={project.slug}
             project={project}
             shouldPreloadImage={index <= 4}
           />

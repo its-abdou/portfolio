@@ -4,6 +4,7 @@ import { Suspense } from "react"
 import { X_USERNAME } from "@/config/site"
 import { ProjectListWithSearch } from "@/features/portfolio/components/projects/project-list-with-search"
 import { ProjectSearchInput } from "@/features/portfolio/components/projects/project-search-input"
+import { getAllProjects } from "@/features/portfolio/data/projects"
 import { cn } from "@/lib/utils"
 
 const title = "Projects"
@@ -36,6 +37,13 @@ export const metadata: Metadata = {
 }
 
 export default function Page() {
+  const projects = getAllProjects().map((project) => ({
+    slug: project.slug,
+    title: project.metadata.name,
+    image: project.metadata.image,
+    createdAt: project.metadata.createdAt,
+  }))
+
   return (
     <div className="mx-auto border-x border-line md:max-w-3xl">
       <div
@@ -82,7 +90,7 @@ export default function Page() {
           </div>
         }
       >
-        <ProjectListWithSearch />
+        <ProjectListWithSearch projects={projects} />
       </Suspense>
 
       <div className="h-4" />

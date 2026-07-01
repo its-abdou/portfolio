@@ -1,0 +1,50 @@
+---
+name: Redis Clone
+sourceCode: https://github.com/its-abdou/Redis-Clone
+image: /images/projects/redis-clone-cover.png
+technologies:
+  - typescript
+  - bun
+  - redis
+description: A from-scratch reimplementation of core Redis internals in TypeScript — the RESP protocol, a non-blocking event loop, and core commands — built through the CodeCrafters "Build Your Own Redis" challenge.
+createdAt: 2025-08-01
+---
+
+<FramedImage
+  src="/images/projects/redis-clone-cover.png"
+  alt="Redis Clone cover"
+/>
+
+## Introduction
+
+Most of my projects are application-level — frontend, backend, CRUD, the stuff you build on top of a database. This one is about what's _underneath_: how a database server actually parses a wire protocol and juggles concurrent connections without blocking.
+
+Built by working through CodeCrafters' "Build Your Own Redis" challenge — a structured, test-driven progression, not a copy-paste tutorial. Every stage means implementing real protocol logic from scratch and passing an actual Redis-compatible test suite.
+
+---
+
+## 🌟 Key Features
+
+- **RESP Protocol** – full parsing and encoding of the Redis Serialization Protocol over raw TCP.
+- **Non-Blocking Event Loop** – handles concurrent client connections without a framework doing the work for you.
+- **Core Commands** – `PING`, `SET`, `GET`, and more, implemented with correct protocol-level behavior.
+
+---
+
+## 🛠 Tech Stack
+
+- **Language:** TypeScript
+- **Runtime:** Bun
+- **Networking:** Raw TCP sockets — no framework, no Redis library, just the protocol spec
+
+---
+
+## 🎯 Why This Exists
+
+Systems programming doesn't come up naturally in a full-stack workflow. This was a deliberate detour to understand event loops, binary protocols, and connection handling at a lower level than any framework usually exposes.
+
+🔗 [GitHub Repository](https://github.com/its-abdou/Redis-Clone)
+
+---
+
+Built with ⚡ to understand what `SET` and `GET` actually do under the hood.

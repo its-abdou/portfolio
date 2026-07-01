@@ -8,13 +8,17 @@ import {
   TooltipContent,
   TooltipTrigger,
 } from "@/components/base/ui/tooltip"
-import { Markdown } from "@/components/markdown"
+import { MDX } from "@/components/mdx"
 import { Button } from "@/components/ui/button"
 import { Kbd } from "@/components/ui/kbd"
 import { Tag } from "@/components/ui/tag"
 import { Prose } from "@/components/ui/typography"
 import { X_USERNAME } from "@/config/site"
-import { PROJECTS } from "@/features/portfolio/data/projects"
+import {
+  findNeighbour,
+  getAllProjects,
+  getProjectBySlug,
+} from "@/features/portfolio/data/projects"
 import { ProjectPageActions } from "@/features/projects/components/project-page-actions"
 import { ProjectPreviewButton } from "@/features/projects/components/project-preview-button"
 import { ProjectShareMenu } from "@/features/projects/components/project-share-menu"
@@ -26,25 +30,7 @@ export const dynamic = "force-static"
 export const dynamicParams = false
 
 export async function generateStaticParams() {
-  return PROJECTS.map((project) => ({ id: project.id }))
-}
-
-function getProjectById(id: string) {
-  return PROJECTS.find((project) => project.id === id)
-}
-
-function findProjectNeighbour(id: string) {
-  const index = PROJECTS.findIndex((project) => project.id === id)
-  return {
-    previous: index > 0 ? PROJECTS[index - 1] : null,
-    next: index < PROJECTS.length - 1 ? PROJECTS[index + 1] : null,
-  }
-}
-
-function getProjectSourceUrl(project: { link: string; source?: string }) {
-  if (project.source) return project.source
-  if (/github\.com/.test(project.link)) return project.link
-  return null
+  return getAllProjects().map((project) => ({ id: project.slug }))
 }
 
 export async function generateMetadata({
@@ -53,19 +39,20 @@ export async function generateMetadata({
   params: Promise<{ id: string }>
 }): Promise<Metadata> {
   const id = (await params).id
-  const project = getProjectById(id)
+  const project = getProjectBySlug(id)
 
   if (!project) {
     return {}
   }
 
-  const postUrl = `/projects/${project.id}`
+  const postUrl = `/projects/${project.slug}`
   const ogImage =
-    project.image || `/og/simple?title=${encodeURIComponent(project.title)}`
+    project.metadata.image ||
+    `/og/simple?title=${encodeURIComponent(project.metadata.name)}`
 
   return {
-    title: project.title,
-    description: project.description?.slice(0, 160),
+    title: project.metadata.name,
+    description: project.metadata.description?.slice(0, 160),
     alternates: {
       canonical: postUrl,
     },
@@ -76,7 +63,7 @@ export async function generateMetadata({
         url: ogImage,
         width: 1200,
         height: 630,
-        alt: project.title,
+        alt: project.metadata.name,
       },
     },
     twitter: {
@@ -94,15 +81,14 @@ export default async function Page({
   params: Promise<{ id: string }>
 }) {
   const id = (await params).id
-  const project = getProjectById(id)
+  const project = getProjectBySlug(id)
 
   if (!project) {
     notFound()
   }
 
-  const { previous, next } = findProjectNeighbour(id)
-  const sourceUrl = getProjectSourceUrl(project)
-  const isPreview = !/github\.com/.test(project.link)
+  const { previous, next } = findNeighbour(getAllProjects(), id)
+  const sourceUrl = project.metadata.sourceCode
 
   return (
     <div className="mx-auto border-x border-line md:max-w-3xl">
@@ -130,16 +116,20 @@ export default async function Page({
         </Button>
 
         <div className="flex items-center gap-2">
-          <ProjectPageActions markdownUrl={`/projects/${project.id}/content`} />
+          <ProjectPageActions
+            markdownUrl={`/projects/${project.slug}/content`}
+          />
 
           <ProjectShareMenu
-            title={project.title}
-            url={`/projects/${project.id}`}
+            title={project.metadata.name}
+            url={`/projects/${project.slug}`}
           />
 
           {sourceUrl && <ProjectSourceButton source={sourceUrl} />}
 
-          {isPreview && <ProjectPreviewButton link={project.link} />}
+          {project.metadata.link && (
+            <ProjectPreviewButton link={project.metadata.link} />
+          )}
 
           {previous && (
             <Tooltip>
@@ -151,7 +141,7 @@ export default async function Page({
                     size="icon-sm"
                     asChild
                   >
-                    <Link href={`/projects/${previous.id}`}>
+                    <Link href={`/projects/${previous.slug}`}>
                       <ArrowLeftIcon />
                       <span className="sr-only">Previous</span>
                     </Link>
@@ -179,7 +169,7 @@ export default async function Page({
                     size="icon-sm"
                     asChild
                   >
-                    <Link href={`/projects/${next.id}`}>
+                    <Link href={`/projects/${next.slug}`}>
                       <span className="sr-only">Next</span>
                       <ArrowRightIcon />
                     </Link>
@@ -211,20 +201,21 @@ export default async function Page({
 
       <Prose className="px-4">
         <h1 className="screen-line-bottom text-3xl font-semibold tracking-tight">
-          {project.title}
+          {project.metadata.name}
         </h1>
 
-        {project.skills.length > 0 && (
-          <ul className="not-prose mb-4 flex flex-wrap gap-1.5">
-            {project.skills.map((skill) => (
-              <li key={skill} className="flex">
-                <Tag>{skill}</Tag>
-              </li>
-            ))}
-          </ul>
-        )}
+        {project.metadata.technologies &&
+          project.metadata.technologies.length > 0 && (
+            <ul className="not-prose mb-4 flex flex-wrap gap-1.5">
+              {project.metadata.technologies.map((technology) => (
+                <li key={technology} className="flex">
+                  <Tag>{technology}</Tag>
+                </li>
+              ))}
+            </ul>
+          )}
 
-        {project.description && <Markdown>{project.description}</Markdown>}
+        <MDX code={project.content} />
       </Prose>
 
       <div className="screen-line-top h-4 w-full" />
