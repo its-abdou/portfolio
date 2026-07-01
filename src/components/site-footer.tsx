@@ -8,19 +8,15 @@ export function SiteFooter() {
   return (
     <footer className="max-w-screen overflow-x-hidden px-2">
       <div className="screen-line-top mx-auto border-x border-line pt-4 group-has-data-[slot=layout-wide]/layout:container md:max-w-3xl">
-        <p className="mb-1 px-4 text-center font-mono text-sm text-balance text-muted-foreground">
-          Inspired by tailwindcss.com / ui.shadcn.com / vercel.com
-        </p>
-
         <p className="mb-4 px-4 text-center font-mono text-sm text-balance text-muted-foreground">
           Built by{" "}
           <a
             className="link transition-[color] hover:text-foreground"
-            href="https://x.com/iamncdai"
+            href="https://github.com/its-abdou"
             target="_blank"
             rel="noopener"
           >
-            ncdai
+            its-abdou
           </a>
           . The source code is available on{" "}
           <a
@@ -38,7 +34,7 @@ export function SiteFooter() {
           <div className="mx-auto flex items-center justify-center gap-3 border-x border-line bg-background px-4">
             <a
               className="flex items-center text-muted-foreground transition-[color] hover:text-foreground"
-              href="https://x.com/iamncdai?utm_source=chanhdai.com"
+              href="https://x.com/its_abdou11"
               target="_blank"
               rel="noopener"
             >
@@ -50,7 +46,7 @@ export function SiteFooter() {
 
             <a
               className="flex items-center text-muted-foreground transition-[color] hover:text-foreground"
-              href="https://github.com/ncdai?utm_source=chanhdai.com"
+              href="https://github.com/its-abdou"
               target="_blank"
               rel="noopener"
             >
@@ -62,7 +58,7 @@ export function SiteFooter() {
 
             <a
               className="flex items-center text-muted-foreground transition-[color] hover:text-foreground"
-              href="https://www.linkedin.com/in/ncdai?utm_source=chanhdai.com"
+              href="https://www.linkedin.com/in/abdessamed-benaidja-02977a291"
               target="_blank"
               rel="noopener"
             >
