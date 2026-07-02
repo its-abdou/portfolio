@@ -4,10 +4,8 @@ A modern, minimal developer portfolio built with **Next.js 16**, showcasing my p
 
 🌐 **Live Demo:** https://its-abdou.tech
 
-> **Note:** The screenshots below will be replaced once the portfolio is deployed.
-
-[![screenshot-dark](./public/readme/screenshot-dark.webp#gh-dark-mode-only)](https://its-abdou.tech#gh-dark-mode-only)
-[![screenshot-light](./public/readme/screenshot-light.webp#gh-light-mode-only)](https://its-abdou.tech#gh-light-mode-only)
+[![screenshot-dark](./public/readme/screenshot-dark.png#gh-dark-mode-only)](https://its-abdou.tech#gh-dark-mode-only)
+[![screenshot-light](./public/readme/screenshot-light.png#gh-light-mode-only)](https://its-abdou.tech#gh-light-mode-only)
 
 ---
 

@@ -9,6 +9,7 @@ export function ProjectSourceButton({ source }: { source: string }) {
       className="h-7 gap-1.5 border-none pr-2 pl-2.5 text-[0.8125rem] active:scale-none [&_svg:not([class*='size-'])]:size-3.5"
       variant="secondary"
       size="sm"
+      nativeButton={false}
       render={<Link href={source} target="_blank" rel="noopener noreferrer" />}
     >
       <Icons.github />
