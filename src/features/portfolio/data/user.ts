@@ -33,8 +33,7 @@ export const USER: User = {
 - Currently exploring **AI**, **cloud**, and **mobile development**, always learning, building, and pushing my limits through real-world projects.
 `,
   avatar: "https://avatars.githubusercontent.com/u/152995137?v=4",
-  ogImage:
-    "https://assets.chanhdai.com/images/screenshot-og-image-dark.png?v=8",
+  ogImage: "/images/og.png",
   timeZone: "Africa/Algiers",
   keywords: [
     "abdessamed benaidja",
