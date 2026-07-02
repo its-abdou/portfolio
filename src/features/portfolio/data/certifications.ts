@@ -16,7 +16,8 @@ export const CERTIFICATIONS: Certification[] = [
     issuerIconName: "coursera",
     issueDate: "2025-08-01",
     credentialID: "TGX4CAK7C8MA",
-    credentialURL: "https://coursera.org/verify/TGX4CAK7C8MA",
+    credentialURL:
+      "https://coursera.org/share/7a2a970dbdc3f5efa95cabc08c707bb2",
   },
   {
     title: "Flutter- Complete Crash Course For Beginners",
@@ -32,7 +33,8 @@ export const CERTIFICATIONS: Certification[] = [
     issuerIconName: "meta",
     issueDate: "2024-12-19",
     credentialID: "0FEO5GWN8MZK",
-    credentialURL: "https://coursera.org/verify/0FEO5GWN8MZK",
+    credentialURL:
+      "https://coursera.org/share/cba4e330793ffbb82ce16a167156abb2",
   },
   {
     title: "Certificate of completion - Power BI",

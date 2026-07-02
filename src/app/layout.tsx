@@ -1,5 +1,6 @@
 import "@/styles/globals.css"
 
+import { OpenPanelComponent } from "@openpanel/nextjs"
 import type { Metadata, Viewport } from "next"
 import Script from "next/script"
 import { NuqsAdapter } from "nuqs/adapters/next/app"
@@ -126,6 +127,12 @@ export default function RootLayout({
       </head>
 
       <body>
+        <OpenPanelComponent
+          clientId={process.env.NEXT_PUBLIC_OPENPANEL_CLIENT_ID || ""}
+          trackScreenViews
+          trackOutgoingLinks
+          trackAttributes
+        />
         <Providers>
           <NuqsAdapter>{children}</NuqsAdapter>
         </Providers>

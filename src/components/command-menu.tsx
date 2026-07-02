@@ -3,8 +3,6 @@
 import { useRouter } from "@bprogress/next/app"
 import { useCommandState } from "cmdk"
 import {
-  AwardIcon,
-  BookmarkIcon,
   BoxIcon,
   BriefcaseBusinessIcon,
   CircleCheckBigIcon,
@@ -84,19 +82,9 @@ const PORTFOLIO_LINKS: CommandLinkItem[] = [
     icon: <BoxIcon />,
   },
   {
-    title: "Honors & Awards",
-    href: "/#awards",
-    icon: <AwardIcon />,
-  },
-  {
     title: "Certifications",
     href: "/#certs",
     icon: <CircleCheckBigIcon />,
-  },
-  {
-    title: "Bookmarks",
-    href: "/#bookmarks",
-    icon: <BookmarkIcon />,
   },
 ]
 
