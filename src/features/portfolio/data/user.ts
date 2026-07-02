@@ -44,5 +44,5 @@ export const USER: User = {
     "enpo",
     "oran",
   ],
-  dateCreated: "2023-10-20", // YYYY-MM-DD
+  dateCreated: "2023-10-20",
 }

@@ -23,7 +23,6 @@ export const MOBILE_NAV: NavItem[] = [
   },
 ]
 
-// TODO: add your own X/Twitter handle (e.g. "@yourhandle")
 export const X_USERNAME = "@its_abdou11"
 export const GITHUB_USERNAME = "its-abdou"
 export const SOURCE_CODE_GITHUB_REPO = "its-abdou/portfolio"
