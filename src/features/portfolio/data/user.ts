@@ -16,7 +16,7 @@ export const USER: User = {
   address: "Oran, Algeria",
   phoneNumber: "KzIxMzc5MTM4NDE5Mw==", //  base64 encoded
   email: "YWJkZXNzYW1lZDYzMEBnbWFpbC5jb20=", // base64 encoded
-  website: "https://github.com/its-abdou",
+  website: "https://its-abdou.tech",
   resumeUrl: "/docs/resume.pdf",
   jobTitle: "Engineering Student",
   jobs: [
