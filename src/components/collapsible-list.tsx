@@ -23,7 +23,7 @@ export function CollapsibleList({ children, max }: CollapsibleListProps) {
       {hasMore && (
         <div className="flex justify-center pt-2">
           <Button
-            variant="ghost"
+            variant="secondary"
             size="sm"
             className="gap-2 border-none"
             onClick={() => setIsExpanded(!isExpanded)}
