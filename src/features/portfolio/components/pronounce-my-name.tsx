@@ -5,8 +5,6 @@ import { useHotkeys } from "react-hotkeys-hook"
 
 import type { VolumeIconHandle } from "@/components/animated-icons/volume"
 import { VolumeIcon } from "@/components/animated-icons/volume"
-import { useSoundLazy } from "@/hooks/use-sound"
-import { trackEvent } from "@/lib/events"
 import { cn } from "@/lib/utils"
 
 export function PronounceMyName({
@@ -16,16 +14,16 @@ export function PronounceMyName({
   className?: string
   namePronunciationUrl: string
 }) {
-  const { play, preload } = useSoundLazy(namePronunciationUrl)
+  const audioRef = useRef<HTMLAudioElement | null>(null)
+  if (audioRef.current == null) {
+    audioRef.current = new Audio(namePronunciationUrl)
+  }
 
   const volumeIconRef = useRef<VolumeIconHandle>(null)
 
   const handlePlayClick = () => {
     volumeIconRef.current?.startAnimation()
-    play()
-    trackEvent({
-      name: "play_name_pronunciation",
-    })
+    audioRef.current?.play()
   }
 
   useHotkeys("p", handlePlayClick)
@@ -37,7 +35,6 @@ export function PronounceMyName({
         "after:absolute after:-inset-1",
         className
       )}
-      onPointerEnter={() => preload()}
       onClick={handlePlayClick}
     >
       <VolumeIcon ref={volumeIconRef} className="size-4.5" />

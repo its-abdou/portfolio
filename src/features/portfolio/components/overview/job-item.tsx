@@ -1,4 +1,9 @@
-import { BriefcaseBusinessIcon, CodeXmlIcon, LightbulbIcon } from "lucide-react"
+import {
+  BriefcaseBusinessIcon,
+  CodeXmlIcon,
+  GraduationCapIcon,
+  LightbulbIcon,
+} from "lucide-react"
 
 import { UTM_PARAMS } from "@/config/site"
 import { addQueryParams } from "@/utils/url"
@@ -49,13 +54,14 @@ export function JobItem({
 }
 
 function getJobIcon(title: string) {
+  if (/student/i.test(title)) {
+    return <GraduationCapIcon />
+  }
   if (/(developer|engineer)/i.test(title)) {
     return <CodeXmlIcon />
   }
-
   if (/(founder|co-founder)/i.test(title)) {
     return <LightbulbIcon />
   }
-
   return <BriefcaseBusinessIcon />
 }

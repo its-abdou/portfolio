@@ -1,72 +1,40 @@
+"use client"
+
 import { ChevronDownIcon } from "lucide-react"
-import { Slot } from "radix-ui"
-import React from "react"
+import { Children, useState } from "react"
 
 import { Button } from "@/components/base/ui/button"
-import {
-  Collapsible,
-  CollapsibleContent,
-  CollapsibleTrigger,
-} from "@/components/base/ui/collapsible"
 
-export function CollapsibleList<T>({
-  items,
-  max = 3,
+type CollapsibleListProps = {
+  children: React.ReactNode
+  max: number
+}
 
-  keyExtractor,
-  renderItem,
-}: {
-  items: T[]
-  max?: number
+export function CollapsibleList({ children, max }: CollapsibleListProps) {
+  const [isExpanded, setIsExpanded] = useState(false)
+  const items = Children.toArray(children)
+  const displayedItems = isExpanded ? items : items.slice(0, max)
+  const hasMore = items.length > max
 
-  keyExtractor?: (item: T) => string
-  renderItem: (item: T) => React.ReactNode
-}) {
   return (
-    <Collapsible className="group/collapsible">
-      {items.slice(0, max).map((award, index) => (
-        <Slot.Root
-          key={typeof keyExtractor === "function" ? keyExtractor(award) : index}
-          className="border-b border-line"
-        >
-          {renderItem(award)}
-        </Slot.Root>
-      ))}
+    <div className="flex flex-col">
+      <div className="flex flex-col">{displayedItems}</div>
 
-      <CollapsibleContent>
-        {items.slice(max).map((award, index) => (
-          <Slot.Root
-            key={
-              typeof keyExtractor === "function"
-                ? keyExtractor(award)
-                : max + index
-            }
-            className="border-b border-line"
+      {hasMore && (
+        <div className="flex justify-center pt-2">
+          <Button
+            variant="ghost"
+            size="sm"
+            className="gap-2 border-none"
+            onClick={() => setIsExpanded(!isExpanded)}
           >
-            {renderItem(award)}
-          </Slot.Root>
-        ))}
-      </CollapsibleContent>
-
-      {items.length > max && (
-        <div className="flex h-12 items-center justify-center pb-px">
-          <CollapsibleTrigger
-            render={
-              <Button className="gap-2 border-none pr-2.5 pl-3" size="sm">
-                <span className="hidden group-data-closed/collapsible:block">
-                  Show More
-                </span>
-
-                <span className="hidden group-data-open/collapsible:block">
-                  Show Less
-                </span>
-
-                <ChevronDownIcon className="group-data-open/collapsible:rotate-180" />
-              </Button>
-            }
-          />
+            {isExpanded ? "Show less" : `Show ${items.length - max} more`}
+            <ChevronDownIcon
+              className={`size-4 transition-transform ${isExpanded ? "rotate-180" : ""}`}
+            />
+          </Button>
         </div>
       )}
-    </Collapsible>
+    </div>
   )
 }

@@ -1,13 +1,6 @@
-import {
-  LinkIcon,
-  MapPinIcon,
-  MarsIcon,
-  NonBinaryIcon,
-  VenusIcon,
-} from "lucide-react"
+import { DownloadIcon, LinkIcon, MapPinIcon } from "lucide-react"
 
 import { USER } from "@/features/portfolio/data/user"
-import type { User } from "@/features/portfolio/types/user"
 import { urlToName } from "@/utils/url"
 
 import { Panel, PanelContent } from "../panel"
@@ -76,24 +69,21 @@ export function Overview() {
           </IntroItem>
 
           <IntroItem>
-            <IntroItemIcon>{getGenderIcon(USER.gender)}</IntroItemIcon>
-            <IntroItemContent aria-label={`Pronouns: ${USER.pronouns}`}>
-              {USER.pronouns}
+            <IntroItemIcon>
+              <DownloadIcon />
+            </IntroItemIcon>
+            <IntroItemContent>
+              <IntroItemLink
+                download="Abdessamed-Benaidja-Resume.pdf"
+                href={USER.resumeUrl}
+                aria-label="Download resume (PDF)"
+              >
+                Resume
+              </IntroItemLink>
             </IntroItemContent>
           </IntroItem>
         </div>
       </PanelContent>
     </Panel>
   )
-}
-
-function getGenderIcon(gender: User["gender"]) {
-  switch (gender) {
-    case "male":
-      return <MarsIcon />
-    case "female":
-      return <VenusIcon />
-    case "non-binary":
-      return <NonBinaryIcon />
-  }
 }

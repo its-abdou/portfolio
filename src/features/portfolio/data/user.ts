@@ -1,66 +1,49 @@
 import type { User } from "@/features/portfolio/types/user"
 
 export const USER: User = {
-  firstName: "Chánh Đại",
-  lastName: "Nguyễn",
-  displayName: "Chánh Đại",
-  username: "ncdai",
+  firstName: "Abdessamed",
+  lastName: "Benaidja",
+  displayName: "Abdessamed Benaidja",
+  username: "its-abdou",
   gender: "male",
   pronouns: "he/him",
-  bio: "Creating with code. Small details matter.",
+  bio: "Creating systems that solve real problems.",
   flipSentences: [
-    "Creating with code. Small details matter.",
-    "Design Engineer",
-    "Open Source Contributor",
+    "Creating systems that solve real problems.",
+    "Software Engineer",
+    "AI & Systems Enthusiast",
   ],
-  address: "Ho Chi Minh City, Viet Nam",
-  phoneNumber: "Kzg0Nzc3ODg4MTQ4", // E.164 format, base64 encoded (https://t.io.vn/base64-string-converter)
-  email: "ZGFpQGNoYW5oZGFpLmNvbQ==", // base64 encoded
-  website: "https://chanhdai.com",
-  jobTitle: "Design Engineer",
+  address: "Oran, Algeria",
+  phoneNumber: "KzIxMzc5MTM4NDE5Mw==", //  base64 encoded
+  email: "YWJkZXNzYW1lZDYzMEBnbWFpbC5jb20=", // base64 encoded
+  website: "https://github.com/its-abdou",
+  resumeUrl: "/docs/resume.pdf",
+  jobTitle: "Engineering Student",
   jobs: [
     {
-      title: "Design Engineer",
-      company: "shadcncraft",
-      website: "https://shadcncraft.com",
-      experienceId: "shadcncraft",
-    },
-    {
-      title: "Founder",
-      company: "Quaric",
-      website: "https://quaric.com",
-      experienceId: "quaric",
+      title: "Engineering Student",
+      company: "ENPO",
+      website: "https://www.enp-oran.dz",
+      experienceId: "education",
     },
   ],
   about: `
-- **Design Engineer** with 5+ years of experience, known for pixel-perfect execution and strong attention to small details.
-- Skilled in **Next.js**, **React**, **TypeScript**, and modern front-end technologies; building high-quality, user-centric web and mobile applications.
-- Passionate about exploring new technologies and turning ideas into reality through polished, thoughtfully crafted personal projects.
-- Creator of [ZaDark](https://zadark.com) (2022): enhances the Zalo experience on PC & Web
-  - 80k+ downloads on [SourceForge](https://sourceforge.net/projects/zadark)*
-  - 30k+ active users on the [Chrome Web Store](https://chromewebstore.google.com/detail/llfhpkkeljlgnjgkholeppfnepmjppob)*
-- Creator of [React Wheel Picker](https://react-wheel-picker.chanhdai.com): iOS-like wheel picker with inertia scrolling & infinite loop
-  - 12k+ weekly downloads on [npm](https://www.npmjs.com/package/@ncdai/react-wheel-picker)*
-  - [▲Vercel OSS Program](https://vercel.com/blog/summer-2025-oss-program#react-wheel-picker) summer 2025 cohort
-
-<p class="text-muted-foreground">* Peak metrics recorded; actual current figures may vary.</p>
+- **Full-Stack Developer & Engineering Student** passionate about building **scalable**, high-quality digital products.  
+- Skilled in **React**, **Next.js**, **TypeScript**, **Express**, and **Laravel**; developing modern, user-centric web applications with strong attention to structure and performance.
+- Currently exploring **AI**, **cloud**, and **mobile development**, always learning, building, and pushing my limits through real-world projects.
 `,
-  avatar: "https://assets.chanhdai.com/images/chanhdai-avatar-ghibli.webp",
+  avatar: "https://avatars.githubusercontent.com/u/152995137?v=4",
   ogImage:
     "https://assets.chanhdai.com/images/screenshot-og-image-dark.png?v=8",
-  namePronunciationUrl: "https://assets.chanhdai.com/audio/chanhdai.mp3",
-  timeZone: "Asia/Ho_Chi_Minh",
+  timeZone: "Africa/Algiers",
   keywords: [
-    "ncdai",
-    "nguyenchanhdai",
-    "nguyen chanh dai",
-    "chanhdai",
-    "chanh dai",
-    "iamncdai",
-    "quaric",
-    "zadark",
-    "nguyễn chánh đại",
-    "chánh đại",
+    "abdessamed benaidja",
+    "abdessamed",
+    "benaidja",
+    "its-abdou",
+    "fullstack developer",
+    "enpo",
+    "oran",
   ],
   dateCreated: "2023-10-20", // YYYY-MM-DD
 }

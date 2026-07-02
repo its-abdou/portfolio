@@ -1,0 +1,68 @@
+---
+name: DesinIt.AI
+sourceCode:
+technologies:
+  - pytorch
+  - python
+  - langchain
+  - fastapi
+  - postgresql
+  - prisma
+  - nextjs
+  - typescript
+  - tailwindcss
+description: An end-to-end system that turns a natural language apartment description into a precise, CAD-exportable floor plan, combining a fine-tuned LLM with a custom vector diffusion model. Built for my End of Studies engineering thesis in partnership with the Hasnaoui Group (GSH).
+createdAt: 2026-03-01
+---
+
+## Introduction
+
+Architects spend a huge chunk of the early design phase manually drafting and iterating on candidate floor plans — slow, repetitive, and a real bottleneck on large construction timelines. Worse, existing generative floor plan tools are trained on Western datasets and don't reflect the spatial conventions of Algerian residential architecture.
+
+DesinIt.AI closes that gap. Describe an apartment in plain language — "a two-bedroom with an open kitchen facing the living room" — and get back a real, CAD-compatible vector floor plan, no drafting required. Built as my End of Studies engineering thesis, in partnership with the **Hasnaoui Group (GSH)**, one of Algeria's largest construction and real estate groups.
+
+---
+
+## 🌟 Key Features
+
+### 🧠 Natural Language to Floor Plan
+
+- **Conversational Generation** – describe an apartment in free-form text, get a structured room-adjacency graph via a fine-tuned LLM.
+- **Iterative Refinement** – a ReAct agent lets you adjust the generated layout through follow-up instructions instead of starting over.
+- **CAD Export** – every generated plan exports directly to DXF, ready for real architectural workflows.
+
+### 📐 Custom Diffusion Model — Plan-Diffusion
+
+- **Boundary Conditioning** – constrains the generated layout to a user-specified building footprint.
+- **Per-Room Area Conditioning** – specify target room sizes directly instead of hoping the model gets it right.
+- **Domain-Adapted** – fine-tuned on a proprietary archive of real Algerian floor plans provided by GSH, on top of the public ResPlan dataset.
+
+---
+
+## 🛠 Tech Stack
+
+- **ML & Training:** PyTorch, Unsloth (LoRA fine-tuning), vLLM (multi-adapter inference), Weights & Biases, LangSmith
+- **Agent & Orchestration:** LangChain (ReAct agent)
+- **Backend:** FastAPI, PostgreSQL, Prisma
+- **Frontend:** Next.js, TypeScript, Tailwind CSS
+- **Data Pipeline:** AutoCAD, Photoshop, OpenCV, NumPy
+
+---
+
+## 📊 Results
+
+- Fine-tuned LLM candidates reached **near-perfect schema validity** and **room-type accuracy above 0.98**.
+- Plan-Diffusion reached graph compatibility within ~17% of the original HouseDiffusion baseline — while adding boundary and area conditioning it didn't have.
+- Evaluated **zero-shot** on Algerian floor plans (no local fine-tuning at all), the system still generated a clear majority of typologies as coherent, valid apartments.
+
+---
+
+## 🎓 Academic Context
+
+Defended June 2026 at École Nationale Polytechnique d'Oran — Maurice Audin, for the State Engineer's Degree in Information Systems. Built with my thesis partner, Abdessamed Benaidja, under the supervision of ENPO-MA and GSH.
+
+Repo is currently private due to the industrial partnership — happy to walk through the thesis or a live demo directly.
+
+---
+
+Built with 🧠 for architects who'd rather describe a floor plan than draft one.
