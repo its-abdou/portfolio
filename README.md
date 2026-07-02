@@ -1,4 +1,4 @@
-# Portfolio &middot; [![GitHub License](https://img.shields.io/github/license/its-abdou/portfolio?label=License)](https://github.com/its-abdou/portfolio/blob/main/LICENSE) ![GitHub Repo Views](https://gitviews.com/repo/its-abdou/portfolio.svg?style=flat&label-color=%23555&color=%23f59e0b)
+# Portfolio &middot; [![License](https://img.shields.io/github/license/its-abdou/portfolio)](https://github.com/its-abdou/portfolio/blob/main/LICENSE) ![GitHub Repo Views](https://gitviews.com/repo/its-abdou/portfolio.svg?style=flat&label-color=%23555&color=%23f59e0b)
 
 A modern, minimal developer portfolio built with **Next.js 16**, showcasing my projects, experience, and journey as a Software Engineer passionate about AI, full-stack development, and scalable systems.
 
