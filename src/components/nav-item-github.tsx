@@ -42,6 +42,7 @@ export async function NavItemGitHub() {
       variant="ghost"
       size="sm"
       className="gap-2"
+      nativeButton={false}
       render={
         <Link
           href={`https://github.com/${SOURCE_CODE_GITHUB_REPO}`}

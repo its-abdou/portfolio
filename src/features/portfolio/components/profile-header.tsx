@@ -2,7 +2,6 @@ import { USER } from "@/features/portfolio/data/user"
 import { TextFlip } from "@/registry/components/text-flip"
 
 import { AvatarElectricEffect } from "./avatar-electric-effect"
-import { PronounceMyName } from "./pronounce-my-name"
 import { VerifiedIcon } from "./verified-icon"
 
 export function ProfileHeader() {
