@@ -2,7 +2,6 @@
 
 A modern, minimal developer portfolio built with **Next.js 16**, showcasing my projects, experience, and journey as a Software Engineer passionate about AI, full-stack development, and scalable systems.
 
-🌐 **Live Demo:** https://its-abdou.tech
 
 [![screenshot-dark](./public/readme/screenshot-dark.png#gh-dark-mode-only)](https://its-abdou.tech#gh-dark-mode-only)
 [![screenshot-light](./public/readme/screenshot-light.png#gh-light-mode-only)](https://its-abdou.tech#gh-light-mode-only)
