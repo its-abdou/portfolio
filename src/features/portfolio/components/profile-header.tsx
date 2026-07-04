@@ -31,15 +31,14 @@ export function ProfileHeader() {
         </div>
 
         <div className="border-t border-line">
-          <div className="flex items-center gap-2 pl-4">
+          <div className="pl-4">
             <h1 className="-translate-y-px text-3xl font-semibold tracking-tight">
               {USER.displayName}
+              <VerifiedIcon
+                className="ml-1.5 inline-block size-4.5 -translate-y-0.5 align-middle text-info select-none"
+                aria-label="Verified"
+              />
             </h1>
-
-            <VerifiedIcon
-              className="size-4.5 text-info select-none"
-              aria-label="Verified"
-            />
           </div>
 
           <div className="h-12.5 border-t border-line py-1 pl-4 sm:h-9">

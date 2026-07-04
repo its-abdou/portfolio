@@ -21,6 +21,10 @@ export const MOBILE_NAV: NavItem[] = [
     title: "Home",
     href: "/",
   },
+  {
+    title: "Projects",
+    href: "/projects",
+  },
 ]
 
 export const X_USERNAME = "@its_abdou11"
