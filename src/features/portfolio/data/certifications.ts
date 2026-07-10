@@ -2,6 +2,15 @@ import type { Certification } from "../types/certifications"
 
 export const CERTIFICATIONS: Certification[] = [
   {
+    title: "Deep Learning Specialization",
+    issuer: "DeepLearning.AI",
+    issuerIconName: "coursera",
+    issueDate: "2026-07-10",
+    credentialID: "XHZKBQWB90ES",
+    credentialURL:
+      "https://coursera.org/share/c22c1c111d3037f3e3ccdc49e57a7050",
+  },
+  {
     title: "Associate AI Engineer for Developers",
     issuer: "DataCamp",
     issuerIconName: "datacamp",
